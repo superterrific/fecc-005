@@ -99,11 +99,11 @@ body {
 }
 
 main {
-  width: 50rem;
+  width: 42rem;
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   line-height: 1.2;
   font-weight: 800;
   width: 22rem;
@@ -118,9 +118,9 @@ p {
 
 .tabs {
   display: flex;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   border-bottom: 2px solid var(--color-mid);
-  padding: .5rem 1rem;
+  padding: .5rem .75rem;
 }
 
 ul a {
