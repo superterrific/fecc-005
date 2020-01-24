@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+:root {
+  --color-light: #f3f3f3;
+  --color-mid: #dedede;
+  --color-dark: #313e4f;
+  --color-slate: #444444;
+  --color-primary: #2a7bd6;
+  --font-base-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,'Helvetica Neue', sans-serif;
+}
+
+/**
+ * Resets
+ * Adapted from Andy Bell's Modern CSS Reset - https://hankchizljaw.com/wrote/a-modern-css-reset/
+ */
+
+ /* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1.5em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Global ----------------------------------------------- */
+
+body {
+  background: var(--color-light);
+  color: var(--color-dark);
+  font-family: var(--font-base-family);
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+main {
+  width: 50rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  line-height: 1.2;
+  font-weight: 800;
+  width: 22rem;
+}
+
+p {
+  line-height: 1.8;
+  width: 32rem;
+}
+
+/* Tabs ----------------------------------------------- */
+
+.tabs {
+  display: flex;
+  font-size: 1.4rem;
+  border-bottom: 2px solid var(--color-mid);
+  padding: .5rem 1rem;
+}
+
+ul a {
+  padding: .7rem;
+  margin: 0 .5rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.tabs [role="tab"][aria-selected="true"]  {
+  border-bottom: 2px solid var(--color-primary);
+}
+
+article {
+  padding: 2.25rem 2rem;
+}
+
+[role="tabpanel"]:not([hidden]) {
+  --delay: calc(var(--i, 1) * 200ms);
+ animation: fadeIn 700ms var(--delay) forwards;
+ opacity: 0;
+}
+
+@keyframes fadeIn {
+	100% { opacity: 1; }
+}
+
+/* Adding Tabby support for older browsers */
+[hidden] {
+	display: none;
+}
+
+
+/* Media Queiries ----------------------------------------------- */
+
+@media (max-width: 768px) {
+
+  .tabs {
+    display: block;
+    border: none;
+    font-size: 1.25rem;
+  }
+
+  .tabs > li:not(:first-child) {
+    border-top: 0;
+  }
+
+  .tabs li {
+    padding: .5rem 0;
+    border: 1px solid var(--color-mid);
+  }
+
+  .tabs li [role="tab"][aria-selected="true"]  {
+    color: var(--color-primary);
+    border: none;
+  }
+
+  .tabs [role="tab"][aria-selected="true"]::after  {
+    content: '\0020⬅';
+  }
+
+  article {
+    padding: 1.5rem 2rem;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  main {
+    width: 95vw;
+  }
+
+  h2, p {
+    width: 70vw;
+  }
+
+}
